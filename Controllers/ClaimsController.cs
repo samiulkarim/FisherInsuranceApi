@@ -4,32 +4,32 @@ using Microsoft.AspNetCore.Mvc;
  public class ClaimsController : Controller
  {
 
-// POST api/auto/quotes
+// POST api/Customer/claims
  [HttpPost]
  public IActionResult Post([FromBody]string value)
  {
  return Created("", value);
  }
 
-// GET api/auto/quotes/5
+// GET api/Customer/claims/5
  [HttpGet("{id}")]
  public IActionResult Get(int id)
  {
  return Ok("The id is: " + id);
  }
 
- // PUT api/auto/quotes/id
+ // PUT api/Customer/claims/id
  [HttpPut("{id}")]
  public IActionResult Put(int id, [FromBody]string value)
  {
  return NoContent();
  }
 
-// DELETE api/auto/quotes/id
+// DELETE api/Customer/claims/id
  [HttpDelete("{id}")]
  public IActionResult Delete(int id)
  {
- return Ok();
+ return Delete(id);
  }
 
  }
