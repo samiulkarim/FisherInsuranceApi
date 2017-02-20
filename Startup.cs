@@ -2,6 +2,7 @@ using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
+using FisherInsuranceApi.Data;
 
 namespace FisherInsurance
 {
@@ -11,6 +12,7 @@ namespace FisherInsurance
         // For more information on how to configure your application, visit https://go.microsoft.com/fwlink/?LinkID=398940
         public void ConfigureServices(IServiceCollection services)
         {
+            services.AddSingleton<IMemoryStore, MemoryStore>(); 
             services.AddMvc();
         }
 
