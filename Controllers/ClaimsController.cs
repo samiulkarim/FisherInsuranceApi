@@ -6,28 +6,28 @@ using FisherInsuranceApi.Models;
  public class ClaimsController : Controller
  {
 
-// POST api/claims
+// POST api/auto/claims
  [HttpPost]
  public IActionResult Post([FromBody] Claim claim)
  {
  return Ok(db.CreateClaim(claim));
  }
 
-// GET api/claims/5
+// GET api/auto/claims/5
  [HttpGet("{id}")]
  public IActionResult Get(int id)
  {
  return Ok(db.RetrieveClaim(id));
  }
 
- // PUT api/claims/id
+ // PUT api/auto/claims/id
  [HttpPut("{id}")]
  public IActionResult Put(int id, [FromBody] Claim claim)
  {
  return Ok(db.UpdateClaim(claim));
  }
 
-// DELETE api/claims/id
+// DELETE api/auto/claims/id
  [HttpDelete("{id}")]
  public IActionResult Delete(int id, [FromBody] Claim claim)
  {
