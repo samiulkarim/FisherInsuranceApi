@@ -1,49 +1,50 @@
-using Microsoft.AspNetCore.Mvc;
-using FisherInsuranceApi.Models;
+using Microsoft.AspNetCore.Mvc; 
 using FisherInsuranceApi.Data;
+using FisherInsuranceApi.Models;
 
-[Route("api/quotes")]
- public class QuotesController : Controller
- {
+[Route("api/quotes")] 
+public class QuotesController : Controller {
 
-// POST api/auto/quotes
- [HttpPost]
- public IActionResult Post([FromBody] Quote quote)
- {
- return Ok(db.CreateQuote(quote)); 
- }
+ [HttpPost] 
+   public IActionResult Post([FromBody] Quote Quote) 
+   { 
+       var newQuote = db.Quotes.Add(Quote); 
+       db.SaveChanges(); 
+       return CreatedAtRoute("GetQuote", new { id = Quote.Id }, Quote); }
 
-// GET api/auto/quotes/5
- [HttpGet("{id}")]
- public IActionResult Get(int id)
- {
- return Ok(db.RetrieveQuote(id)); 
- }
+     // GET api/auto/Quotes/5 
+    [HttpGet] 
+     public IActionResult GetQuotes() 
+    {
+        return Ok(db.Quotes); }
 
- // PUT api/auto/quotes/id
- [HttpPut("{id}")]
- public IActionResult Put(int id, [FromBody] Quote quote)
- {
- return Ok(db.UpdateQuote(quote));
- }
+     [HttpGet("{id}", Name = "GetQuote")] 
+     public IActionResult Get(int id) 
+     {
+          return Ok(db.Quotes.Find(id)); }
 
-// DELETE api/auto/quotes/id
- [HttpDelete("{id}")]
- public IActionResult Delete(int id, [FromBody] Quote quote)
- {
-    db.DeleteQuote(id);
-    return Ok(); 
- }
+    // PUT api/auto/Quotes/id 
+   [HttpPut("{id}")]
+    public IActionResult Put(int id, [FromBody] Quote Quote) 
+    { 
+        var newQuote = db.Quotes.Find(id); 
+        if (newQuote == null) { return NotFound(); } 
+        newQuote = Quote; db.SaveChanges(); return Ok(newQuote);
+    }
 
- private IMemoryStore db;
-public QuotesController(IMemoryStore repo)
-{
- db = repo;
-} 
-[HttpGet]
-public IActionResult GetQuotes()
-{
- return Ok(db.RetrieveAllQuotes);
-}
+    // DELETE api/auto/Quotes/id
+    [HttpDelete("{id}")] 
+    public IActionResult Delete(int id) 
+    {
+         var QuoteToDelete = db.Quotes.Find(id); 
+         if (QuoteToDelete == null) { return NotFound(); } 
+         db.Quotes.Remove(QuoteToDelete); 
+         db.SaveChangesAsync(); 
+         return NoContent();}
 
+    private readonly FisherContext db;
+    public QuotesController(FisherContext context)
+    {
+    db = context;
+    }
 }
