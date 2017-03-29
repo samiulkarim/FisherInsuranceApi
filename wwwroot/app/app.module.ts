@@ -6,11 +6,11 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import 'rxjs/Rx';
 
 import { AppComponent } from './app.component';
-import { HomeComponent } from './components/home/home.component';
-import { NavBarComponent } from './components/Navbar/navbar.component';
-import { LoginComponent } from './components/login/login.component';
-import { ClaimsComponent } from './components/claims/claims.component';
-import { QuotesComponent } from './components/quotes/quotes.component';
+import { HomeComponent } from './Components/home/home.component';
+import { NavBarComponent } from './Components/Navbar/navbar.component';
+import { LoginComponent } from './Components/login/login.component';
+import { ClaimsComponent } from './Components/claims/claims.component';
+import { QuotesComponent } from './Components/quotes/quotes.component';
 
 import { AppRouting } from './app.routing';
 import { AuthService } from './auth.service';
