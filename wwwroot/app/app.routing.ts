@@ -1,9 +1,9 @@
 import { ModuleWithProviders } from "@angular/core";
 import { Routes, RouterModule } from "@angular/router";
-import { HomeComponent } from './components/home/home.component';
-import { QuotesComponent } from './components/quotes/quotes.component';
-import { ClaimsComponent } from './components/claims/claims.component';
-import { LoginComponent } from './components/login/login.component';
+import { HomeComponent } from './Components/home/home.component';
+import { QuotesComponent } from './Components/quotes/quotes.component';
+import { ClaimsComponent } from './Components/claims/claims.component';
+import { LoginComponent } from './Components/login/login.component';
 const appRoutes: Routes = [
  {
  path: "",
