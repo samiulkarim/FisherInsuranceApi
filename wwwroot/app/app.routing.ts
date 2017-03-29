@@ -5,26 +5,26 @@ import { QuotesComponent } from './Components/quotes/quotes.component';
 import { ClaimsComponent } from './Components/claims/claims.component';
 import { LoginComponent } from './Components/login/login.component';
 const appRoutes: Routes = [
- {
- path: "",
- component: HomeComponent
- },
- {
- path: "home",
- redirectTo: ""
- },
- {
- path: "quotes",
- component: QuotesComponent
- },
- {
- path: "claims",
- component: ClaimsComponent
- },
- {
- path: "login",
- component: LoginComponent
- }
+    {
+        path: "",
+        component: HomeComponent
+    },
+    {
+        path: "home",
+        redirectTo: ""
+    },
+    {
+        path: "quotes",
+        component: QuotesComponent
+    },
+    {
+        path: "claims",
+        component: ClaimsComponent
+    },
+    {
+        path: "login",
+        component: LoginComponent
+    }
 ];
 export const AppRoutingProviders: any[] = [
 ];
